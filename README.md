@@ -1,12 +1,13 @@
-# i18n-json-to-xlsx
+# i18n-js-to-xlsx
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/philipp-meier/i18n-js-to-xlsx/blob/main/LICENSE)
 
-Transforms multiple i18n JSON objects to a single xlsx file with a column for each specified language.
+Transforms multiple i18n JavaScript objects to a single xlsx file with a column for each specified language.
 
 ## Example
 
-**Input (JSON):**
+**Input (JavaScript object):**
 
-```json
+```javascript
 {
   Start: {
     WelcomeTitle: "Willkommen",
