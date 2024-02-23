@@ -1,4 +1,5 @@
 # i18n-js-to-xlsx
+
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/philipp-meier/i18n-js-to-xlsx/blob/main/LICENSE)
 
 Transforms multiple i18n JavaScript objects to a single xlsx file with a column for each specified language.
@@ -43,3 +44,7 @@ Transforms multiple i18n JavaScript objects to a single xlsx file with a column 
 
 Modify the `app.ts` to include your JSON objects and run `npm run start`.  
 You will find the xlsx-file in the `output`-directory that will be created automatically.
+
+## Experimental
+
+`i18n-js-to-xlsx` also supports transforming the generated xlsx back to a JSON object (experimental).

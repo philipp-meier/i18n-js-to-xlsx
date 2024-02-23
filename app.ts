@@ -1,14 +1,9 @@
-import path from "path";
-import fs from "fs";
 import { ResourcesDE } from "./input/Resources.de.js";
 import { ResourcesEN } from "./input/Resources.en.js";
-import {
-  ResourcesDefinition,
-  prepareTranslation,
-  translationResultToXlsx,
-} from "./utils.js";
+import { ResourcesDefinition, jsToXlsx, xlsxToJson } from "./utils.js";
 
-const input: ResourcesDefinition[] = [
+// Input
+const resDefinition: ResourcesDefinition[] = [
   {
     identifier: "en",
     value: ResourcesEN,
@@ -19,16 +14,12 @@ const input: ResourcesDefinition[] = [
   },
 ];
 
-const translationResult = prepareTranslation(input);
-
 const outputDir = "output";
-if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir);
-}
+const xlsxFileName = "Translations.xlsx";
+const cultureIdentifiers = resDefinition.map((x) => x.identifier);
 
-const cultureIdentifiers = input.map((x) => x.identifier);
-translationResultToXlsx(
-  translationResult,
-  cultureIdentifiers,
-  path.join(outputDir, "Translations.xlsx")
-);
+// Transforms multiple JS objects to a single xlsx file.
+await jsToXlsx(outputDir, xlsxFileName, resDefinition);
+
+// Experimental: Transforms the xlsx file back to a JSON file for each culture identifier.
+await xlsxToJson(outputDir, xlsxFileName, outputDir, cultureIdentifiers);

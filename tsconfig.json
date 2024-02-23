@@ -5,7 +5,6 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "noImplicitReturns": true,
-    "noUnusedLocals": true,
     "noUnusedParameters": true,
     "allowUnreachableCode": false,
     "esModuleInterop": true,
@@ -13,5 +12,6 @@
     "sourceMap": true,
     "outDir": "dist"
   },
-  "lib": ["ESNext"]
+  "lib": ["ESNext"],
+  "exclude": ["./output"]
 }
