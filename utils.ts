@@ -34,7 +34,7 @@ export async function xlsxToJson(
     cultureIdentifiers
   );
 
-  jsObjects.forEach(async (obj, index) => {
+  jsObjects.forEach((obj, index) => {
     const resFileName = `Resources${cultureIdentifiers[
       index
     ].toUpperCase()}.json`;
@@ -178,9 +178,7 @@ async function transformToJsObjects(
       if (rowNumber === 1) return;
 
       const identifier = row.getCell(1).value!.toString();
-      const value = row.getCell(columnIndex).value;
-
-      cultureObject[identifier] = value;
+      cultureObject[identifier] = row.getCell(columnIndex).value;
     });
 
     cultureObjects.push(cultureObject);
